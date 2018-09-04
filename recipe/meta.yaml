@@ -1,4 +1,4 @@
-{% set version = '0.1.1' %}
+{% set version = '0.1.1.1' %}
 
 {% set posix = 'm2-' if win else '' %}
 {% set native = 'm2w64-' if win else '' %}
@@ -8,11 +8,10 @@ package:
   version: {{ version|replace("-", "_") }}
 
 source:
-  fn: miniUI_{{ version }}.tar.gz
   url:
     - {{ cran_mirror }}/src/contrib/miniUI_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/miniUI/miniUI_{{ version }}.tar.gz
-  sha256: 9c92032071ee75ee9c26c4cfd3115877fbcb15de2fd2023109c670784b51cce1
+  sha256: 452b41133289f630d8026507263744e385908ca025e9a7976925c1539816b0c0
 
 build:
   merge_build_host: True  # [win]
@@ -26,6 +25,7 @@ build:
 
 requirements:
   build:
+    - {{posix}}zip               # [win]
 
   host:
     - r-base
@@ -67,7 +67,7 @@ extra:
 # Package: miniUI
 # Type: Package
 # Title: Shiny UI Widgets for Small Screens
-# Version: 0.1.1
+# Version: 0.1.1.1
 # Authors@R: c( person("Joe", "Cheng", role = c("cre", "aut"), email = "joe@rstudio.com"), person(family = "RStudio", role = "cph") )
 # Description: Provides UI widget and layout functions for writing Shiny apps that work well on small screens.
 # License: GPL-3
@@ -75,11 +75,11 @@ extra:
 # Imports: shiny (>= 0.13), htmltools (>= 0.3), utils
 # RoxygenNote: 5.0.1
 # NeedsCompilation: no
-# Packaged: 2016-01-15 17:31:47 UTC; jcheng
+# Packaged: 2018-05-18 17:00:34 UTC; jcheng
 # Author: Joe Cheng [cre, aut], RStudio [cph]
 # Maintainer: Joe Cheng <joe@rstudio.com>
 # Repository: CRAN
-# Date/Publication: 2016-01-15 19:33:16
+# Date/Publication: 2018-05-18 18:37:18 UTC
 
 # See
 # http://docs.continuum.io/conda/build.html for
